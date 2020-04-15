@@ -50,6 +50,9 @@ function renderItems() {
 nextButton.addEventListener('click', ()=> {
     
     const itemChecked = document.querySelector('input[type=radio]:checked');
+
+    // let gameCounter = 25;
+
     
     renderItems(itemChecked);
     
