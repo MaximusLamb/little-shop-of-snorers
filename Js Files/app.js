@@ -1,8 +1,8 @@
 import items from './imagearray.js';
-import randomImage from './randomImage.js'
+import randomImage from './randomImage.js';
 
-const productImg = document.querySelectorAll('img');
-const itemsRadioTag = document.querySelectorAll('input');
+// const productImg = document.querySelectorAll('img');
+// const itemsRadioTag = document.querySelectorAll('input');
 const nextButton = document.getElementById('next-button');
 
 
@@ -19,7 +19,7 @@ const image3 = document.getElementById('image3');
 renderItems(); 
 
 
-let itemCounter = 25;
+// let itemCounter = 25;
 
 
 // radioButton1.value = item1.id;
