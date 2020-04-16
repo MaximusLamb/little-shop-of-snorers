@@ -1,6 +1,6 @@
 import itemsArray from './imagearray.js';
 import randomImage from './randomImage.js';
-// import findById, { incrementTimesPicked, addInitialItem, incrementTimesSeen } from './utils.js';
+import { incrementTimesPicked, incrementTimesSeen } from './utils.js';
 
 
 // const productImg = document.querySelectorAll('img');
