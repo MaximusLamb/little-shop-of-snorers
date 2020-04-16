@@ -1,16 +1,16 @@
 import itemsArray from './imagearray.js';
 import randomImage from './randomImage.js';
-import findById, { incrementTimesPicked, addInitialItem, incrementTimesSeen } from './utils.js';
+// import findById, { incrementTimesPicked, addInitialItem, incrementTimesSeen } from './utils.js';
 
 
-const productImg = document.querySelectorAll('img');
-const itemsRadioTag = document.querySelectorAll('input');
+// const productImg = document.querySelectorAll('img');
+// const itemsRadioTag = document.querySelectorAll('input');
 const nextButton = document.getElementById('next-button');
 
 
-// let itemCounter = 25;
-// let itemViewed = 0;
-// let timesPicked = 0;
+// let clickCounter = 25;
+// // let itemViewed = 0;
+// // let timesPicked = 0;
 
 // pull radio buttons from html and assign them 
 const radioButton1 = document.getElementById('radio1');
@@ -71,6 +71,10 @@ nextButton.addEventListener('click', ()=> {
     
     
 });
+
+// resultButton.addEventListener('submit', ()=> {
+
+// })
 renderItems();
 
 function saveToLocalStorage(dataStorage) {
