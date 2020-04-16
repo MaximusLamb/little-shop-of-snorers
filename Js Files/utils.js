@@ -1,53 +1,60 @@
 
 
+export default function findById(id, itemArray) {
 
-// export function findById (id, itemArray) {
+    for (let i = 0; i < itemArray.length; i++) {
 
-//     for (let i = 0; i < itemArray.length; i++) {
+        const array = itemArray[i];
 
-//         const array = itemArray[i];
-
-//         if (array.id === id) {
-//             return array;
-//         }
-//     }
-
-// }
-
-// function incrementTimesSeen() {
+        if (array.id === id) {
+            return array;
+        }
+    }
+    return null;
+}
 
 
+export function incrementTimesSeen(id, itemArray) {
 
-// }
+    let itemSeen = findById(id, itemArray);
+    if (!itemSeen) {
+        addInitialItem(id, itemArray);
+        itemSeen = findById(itemArray, id);
 
+    }
+    itemSeen.timesSeen++;
 
-
-
-
-// function incrementTimesPicked(id, array) {
-
-//     let item = findById(id, array); 
-
-//     if (!item); {
-
-//         addInitialItem(id, array);
-
-//         item = findById(id, array);
-//     }
-//     item.timesPicked++;
-// }
+}
 
 
 
 
-// function addInitialItem(id, array) {
 
-//     const initialItem = { 
+export function incrementTimesPicked(id, itemArray) {
 
-//         id: id, 
-//         timesSeen: 0,
-//         timesPicked: 0
+    let item = findById(id, itemArray); 
 
-//     };
-//     array.push(initialItem);
-// }
+    if (!item); {
+
+        addInitialItem(id, itemArray);
+
+        item = findById(id, itemArray);
+    }
+    item.timesPicked++;
+}
+
+
+
+
+export function addInitialItem(id, itemArray) {
+
+    const initialItem = { 
+
+        id, 
+        timesSeen: 0,
+        timesPicked: 0
+
+    };
+
+    itemArray.push(initialItem);
+}

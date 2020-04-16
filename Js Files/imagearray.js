@@ -99,7 +99,7 @@ const wineGlass = {
     image: '../assets/wine-glass.jpg'
 };
 
-const items = [
+const itemsArray = [
     bag,
     banana,
     bathroom,
@@ -121,4 +121,4 @@ const items = [
     waterCan,
     wineGlass
 ];
-export default items; 
+export default itemsArray; 
