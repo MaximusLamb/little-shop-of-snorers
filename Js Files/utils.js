@@ -1,4 +1,6 @@
+// import renderItems from './app.js';
 
+// const returnButton = document.getElementById('return-button');
 
 export default function findById(id, itemArray) {
 
@@ -10,7 +12,6 @@ export default function findById(id, itemArray) {
             return array;
         }
     }
-    return null;
 }
 
 
@@ -19,8 +20,8 @@ export function incrementTimesSeen(id, itemArray) {
     let itemSeen = findById(id, itemArray);
     if (!itemSeen) {
         addInitialItem(id, itemArray);
-        itemSeen = findById(itemArray, id);
-
+        itemSeen = findById(id, itemArray);
+        
     }
     itemSeen.timesSeen++;
 
@@ -58,3 +59,18 @@ export function addInitialItem(id, itemArray) {
 
     itemArray.push(initialItem);
 }
+
+export function resultScreenActivator(clickCounter) {
+
+    if (clickCounter === 22) {
+    
+        window.location.href = './results.html';
+
+    }
+}
+
+export function clearTempStorage(tempStorage) {
+    localStorage.clear(tempStorage);
+}
+
+
