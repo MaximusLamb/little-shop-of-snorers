@@ -3,7 +3,7 @@ import { clearTempStorage } from './utils.js';
 const returnButton = document.getElementById('return-button');
 
 returnButton.addEventListener('click', () => {
-    console.log('hello');
+    
 
     
     const tempStorage = localStorage.getItem('STORAGE');

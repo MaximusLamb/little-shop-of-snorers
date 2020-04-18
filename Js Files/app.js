@@ -1,6 +1,6 @@
 import itemsArray from './imagearray.js';
 import randomImage from './randomImage.js';
-import { incrementTimesPicked, incrementTimesSeen, resultScreenActivator, clearTempStorage } from './utils.js';
+import { incrementTimesPicked, incrementTimesSeen, resultScreenActivator } from './utils.js';
 
 
 
