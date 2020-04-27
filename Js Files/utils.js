@@ -17,39 +17,36 @@ export default function findById(id, itemArray) {
 
 export function incrementer(id, itemArray) {
 
-    function addInitialItem(id, itemArray) {
-
-        const initialItem = { 
     
-            id: id, 
-            timesSeen: 0,
-            timesPicked: 0
-    
-        };
-    
-        itemArray.push(initialItem);
-    }
-
     let itemSeen = findById(id, itemArray);
-
-    if (!itemSeen); {
+    
+    if (!itemSeen) {
         addInitialItem(id, itemArray);
-        itemSeen = findById(id, itemArray);
     }
+    itemSeen = findById(id, itemArray);
     itemSeen.timesSeen++;
     itemSeen.timesPicked++;
 }
 
 export function resultScreenActivator(clickCounter) {
-
-    if (clickCounter === 0) {
     
+    if (clickCounter === 0) {
+        
         window.location.href = './results.html';
-
+        
     }
 }
 
-export function clearTempStorage(tempStorage) {
-    localStorage.clear(tempStorage);
+function addInitialItem(id, itemArray) {
+
+    const initialItem = { 
+
+        id, 
+        timesSeen: 0,
+        timesPicked: 0
+
+    };
+    itemArray.push(initialItem);
 }
+    
 
