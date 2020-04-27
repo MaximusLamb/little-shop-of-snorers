@@ -53,4 +53,3 @@ export function clearTempStorage(tempStorage) {
     localStorage.clear(tempStorage);
 }
 
-
