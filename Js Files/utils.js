@@ -15,54 +15,34 @@ export default function findById(id, itemArray) {
 }
 
 
-export function incrementTimesSeen(id, itemArray) {
+export function incrementer(id, itemArray) {
+
+    function addInitialItem(id, itemArray) {
+
+        const initialItem = { 
+    
+            id: id, 
+            timesSeen: 0,
+            timesPicked: 0
+    
+        };
+    
+        itemArray.push(initialItem);
+    }
 
     let itemSeen = findById(id, itemArray);
-    if (!itemSeen) {
+
+    if (!itemSeen); {
         addInitialItem(id, itemArray);
         itemSeen = findById(id, itemArray);
-        
     }
     itemSeen.timesSeen++;
-
-}
-
-
-
-
-
-export function incrementTimesPicked(id, itemArray) {
-
-    let item = findById(id, itemArray); 
-
-    if (!item); {
-
-        addInitialItem(id, itemArray);
-
-        item = findById(id, itemArray);
-    }
-    item.timesPicked++;
-}
-
-
-
-
-export function addInitialItem(id, itemArray) {
-
-    const initialItem = { 
-
-        id, 
-        timesSeen: 0,
-        timesPicked: 0
-
-    };
-
-    itemArray.push(initialItem);
+    itemSeen.timesPicked++;
 }
 
 export function resultScreenActivator(clickCounter) {
 
-    if (clickCounter === 22) {
+    if (clickCounter === 0) {
     
         window.location.href = './results.html';
 

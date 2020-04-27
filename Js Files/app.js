@@ -1,6 +1,6 @@
 import itemsArray from './imagearray.js';
 import randomImage from './randomImage.js';
-import { incrementTimesPicked, incrementTimesSeen, resultScreenActivator } from './utils.js';
+import { incrementer, resultScreenActivator } from './utils.js';
 
 
 
@@ -48,32 +48,36 @@ export default function renderItems() {
 
 let clickCounter = 25;
 let itemsPickedArray = [];
-const allTimeResults = [];
+let allTimeResults;
+
+let allTimeResultsStorage = localStorage.getItem('PERMASTORAGE');
+if (allTimeResultsStorage) {
+    let parsedAllTimesResultsStorage = JSON.parse(allTimeResultsStorage);
+
+    allTimeResults = parsedAllTimesResultsStorage;
+} else {
+    allTimeResults = [];
+}
 
 
 
 nextButton.addEventListener('click', () => {
     const itemChecked = document.querySelector('input[type=radio]:checked');
     const itemChosen = itemChecked.value;
-    
-    incrementTimesSeen(itemChosen, itemsPickedArray);
-    incrementTimesSeen(itemChosen, allTimeResults);
-    
-    incrementTimesPicked(itemChosen, itemsPickedArray);
-    incrementTimesPicked(itemChosen, allTimeResults);
+
+    incrementer(itemChosen, itemsPickedArray);
+    incrementer(itemChosen, allTimeResults);
     
     saveToLocalStorage(itemsPickedArray);
 
     savePermaInformation(allTimeResults);
-    
-    pullLocalData();
     
     renderItems();
     
     clickCounter--;
     
     resultScreenActivator(clickCounter);
-    console.log('hello');
+    
 });
 
 renderItems();
@@ -85,18 +89,6 @@ export function saveToLocalStorage(dataStorage) {
     // const permaStorage = JSON.stringify(dataStorage);
     localStorage.setItem('STORAGE', newlyStoredItem);
     // localStorage.setItem('PERMASTORAGE', permaStorage);
-}
-
-export function pullLocalData() {
-
-    const dataStorage = localStorage.getItem('STORAGE');
-
-    if (dataStorage) {
-        return JSON.parse(dataStorage);
-    } else {
-        return [];
-    }
-
 }
 
 export function savePermaInformation(permaInfo) {
