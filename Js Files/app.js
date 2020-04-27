@@ -67,10 +67,15 @@ nextButton.addEventListener('click', () => {
 
     incrementer(itemChosen, itemsPickedArray);
     incrementer(itemChosen, allTimeResults);
-    
-    saveToLocalStorage(itemsPickedArray);
 
-    savePermaInformation(allTimeResults);
+    function saveToLocalStorage(dataStorage, permaDataStorage) {
+        const newlyStoredItem = JSON.stringify(dataStorage);
+        const permaStorage = JSON.stringify(permaDataStorage);
+        localStorage.setItem('STORAGE', newlyStoredItem);
+        localStorage.setItem('PERMASTORAGE', permaStorage);
+    }
+    
+    saveToLocalStorage(itemsPickedArray, allTimeResults);
     
     renderItems();
     
@@ -81,17 +86,3 @@ nextButton.addEventListener('click', () => {
 });
 
 renderItems();
-
-
-
-export function saveToLocalStorage(dataStorage) {
-    const newlyStoredItem = JSON.stringify(dataStorage);
-    // const permaStorage = JSON.stringify(dataStorage);
-    localStorage.setItem('STORAGE', newlyStoredItem);
-    // localStorage.setItem('PERMASTORAGE', permaStorage);
-}
-
-export function savePermaInformation(permaInfo) {
-    const permaStorage = JSON.stringify(permaInfo);
-    localStorage.setItem('PERMASTORAGE', permaStorage);
-}
