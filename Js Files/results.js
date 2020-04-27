@@ -38,8 +38,10 @@ const names = [];
 const votes = [];
 
 results.forEach(item => {
-    votes.push(item.votes);
-    names.push(item.id);
+    const label = item.id;
+    const datapoint = item.timesPicked;
+    votes.push(datapoint);
+    names.push(label);
 });
 
 
@@ -53,7 +55,9 @@ new Chart(chart, {
         datasets: [{
             label: 'Times Voted',
             data: votes,
-            backgroundColor: ['lightblue', 'blue', 'yellow', 'green', 'purple', 'orange', 'teal', 'black', 'brown', 'limegreen', 'pink', 'violet', 'red', 'lightblue', 'purple', 'aqua', 'forestgreen', 'salmon', 'magenta', 'brown', 'red']
+            backgroundColor: ['lightblue', 'blue', 'yellow', 'green', 'purple', 'orange', 'teal', 'black', 'brown', 'limegreen', 'pink', 'violet', 'red', 'lightblue', 'purple', 'aqua', 'forestgreen', 'salmon', 'magenta', 'brown', 'red'],
+            borderColor: ['black', 'red', 'green', 'blue', 'orange', 'yellow'],
+            borderWidth: 1
         }]
     },
     options: {
@@ -96,9 +100,10 @@ returnButton.addEventListener('click', () => {
     
     const tempStorage = localStorage.getItem('STORAGE');
     const wipedStorage = JSON.parse(tempStorage);
+    // const permaStorage = localStorage.getItem('PERMASTORAGE');
+    // const permanentStorage = localStorage.parse(wipedStorage);
     clearTempStorage(wipedStorage);
     window.location.href = './index.html';
-    // renderItems();
 });
 
 
